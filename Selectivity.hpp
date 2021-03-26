@@ -25,7 +25,7 @@ namespace selectivity{
 /**
  * Selectivity base class. Inherits from modelbase.
  */
-template <class T>
+template <class T>//T can be any type, double float, variable, etc.
 class selectivity_base:public modelbase<T>{
 protected:
     
@@ -41,15 +41,16 @@ public:
 /**
  *Logistic selectivity implementation. Inherits from selectivity_base.
  */
-template <class T>
+template <class T>//T can be any type, double float, variable, etc.
 class logistic:public selectivity_base<T>{
     
 public:
+    //member fields
     T a50_m; // m means member of class
     T slope_m;
     
     /*
-     *default constructor.
+     *Default constructor.
      */
     logistic(){
         
@@ -64,8 +65,8 @@ public:
     }
     
     /*
-     * destructor. used to release any memory
-     this class puts on the heap.
+     * Destructor. used to release any memory
+     * this class puts on the heap.
      */
     ~ logistic(){    //destructor
         std::cout <<"I just deleted"<<std::endl;
@@ -81,10 +82,14 @@ public:
     
 };
 
-template <class T>
+/**
+ *Double logistic selectivity implementation. Inherits from selectivity_base.
+ */
+template <class T>//T can be any type, double float, variable, etc.
 class doublelogistic:public selectivity_base<T>{
     
 public:
+    //member fields
     T alpha_asc_m;
     T beta_asc_m;
     T alpha_desc_m;
@@ -104,7 +109,7 @@ public:
     }
     /*
      * destructor. used to release any memory
-     this class puts on the heap.
+     * this class puts on the heap.
      */
     ~doublelogistic(){
         std::cout <<"I just deleted"<< std::endl;
