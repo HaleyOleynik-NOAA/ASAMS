@@ -73,7 +73,7 @@ public:
     }
     
     /**
-     *Logistic mplementation of the virtual evaluate function. Required to be overloaded.
+     *Double logistic mplementation of the virtual evaluate function. Required to be overloaded.
      *Same look as selectivity_base, different behavior....polymorphism.
      */
     virtual T evaluate(const T& age){
