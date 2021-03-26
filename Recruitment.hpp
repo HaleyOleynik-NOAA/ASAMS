@@ -47,7 +47,7 @@ class beverton_holt:public recruitment_base<T>{
 public:
     
     /*
-     *Default constreuctor
+     *Default constructor
      */
     beverton_holt(){
         
@@ -87,7 +87,7 @@ class ricker:public recruitment_base<T>{
 public:
     
     /*
-     *Default constreuctor
+     *Default constructor
      */
     ricker(){
         
