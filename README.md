@@ -9,3 +9,4 @@ The Age Structured Assessment Modeling System (ASAMS) is a group project for the
 - Maturity
 - Fleet
 - Survey
+- Population
