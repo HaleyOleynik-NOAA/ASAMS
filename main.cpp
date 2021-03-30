@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Selectivity.hpp"
 #include "Recruitment.hpp"
+#include "Mortality.hpp"
 
 int main(int argc, const char * argv[]) {
     selectivity::logistic<double> myselectivity(5.0,0.7); //replaces T with double
@@ -18,6 +19,8 @@ int main(int argc, const char * argv[]) {
     
     recruitment::ricker<double> myrecruitment2(1000,0.7);
     std::cout<<myrecruitment2.evaluate(150,50)<<std::endl;
+    
+    mortality::test_mortality();
     
     return 0;
 }
