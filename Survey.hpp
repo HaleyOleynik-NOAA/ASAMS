@@ -2,7 +2,6 @@
 //  Survey.hpp
 //  Catch_at_Age
 //
-//
 
 #ifndef Survey_h
 #define Survey_h
@@ -29,7 +28,7 @@ template<class T>
     selectivity_base* selectivity_model;
     T q
      
-     void evaluate(){
+     T likelihood(){
          
      }
     
@@ -39,4 +38,5 @@ template<class T>
 
 
 #endif /* Survey_h */
+
 
