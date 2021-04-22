@@ -33,7 +33,7 @@ template<class T>
     selectivity_base* selectivity_model;
     std::vector<T> fishing_mortality;
      
-     void evaluate(){
+     T likelihood(){
          
      }
     
