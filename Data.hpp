@@ -9,7 +9,7 @@
 
 #include <vector>
 
-namespace data{
+namespace asams{
 
  template <class T>
    class data_base{
@@ -53,3 +53,4 @@ namespace data{
 }
 
 #endif /* Data_h */
+
