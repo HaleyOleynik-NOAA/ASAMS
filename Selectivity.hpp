@@ -1,95 +1,54 @@
-/**
- * Selectivity.hpp
- *
- * Selectivity module for the Age Structured Assessment Modeling System (ASAMS).
- * ASAMS is a group project for the National Oceanic and Atmospheric Administration,
- * Office Of Science and Technology, NOAA Fisheries, National Modeling Team
- * C++ study group.
- *
- *  Created by Haley  Oleynik  on 3/16/21.
- */
+//
+//  Selectivity.hpp
+//  Catch_at_Age
+//
+//
 
 #ifndef Selectivity_h
 #define Selectivity_h
 
 #include "Common.hpp"
 
+namespace asams{
 
-
-/**
- * Selecivity namespace.
- */
-namespace selectivity{
-
-
-/**
- * Selectivity base class. Inherits from modelbase.
- */
-template <class T>//T can be any type, double float, variable, etc.
-class selectivity_base:public modelbase<T>{
+template <class T>
+class selectivity_base:public model_base<T>{
 protected:
     
 public:
-    /**
-     *virtual function required to be overloaded by
-     *all children of selectivity_base.
-     */
     virtual T evaluate(const T& age)=0;
 };
 
-
-/**
- *Logistic selectivity implementation. Inherits from selectivity_base.
- */
-template <class T>//T can be any type, double float, variable, etc.
+template <class T>
 class logistic:public selectivity_base<T>{
     
 public:
-    //member fields
     T a50_m; // m means member of class
     T slope_m;
     
-    /*
-     *Default constructor.
-     */
     logistic(){
         
     }
     
-    /*
-     *Constructor that takes parameters.
-     */
     logistic(T a50, T slope){  // constructor
         this->a50_m=a50;
         this->slope_m=slope;
     }
     
-    /*
-     * Destructor. used to release any memory
-     * this class puts on the heap.
-     */
     ~ logistic(){    //destructor
         std::cout <<"I just deleted"<<std::endl;
     }
     
-    /**
-     *Double logistic mplementation of the virtual evaluate function. Required to be overloaded.
-     *Same look as selectivity_base, different behavior....polymorphism.
-     */
     virtual T evaluate(const T& age){
-        return (1.0) / (1.0 + caa::exp(-1.0 * (age - a50_m) / slope_m));
+        return (1.0) / (1.0 + asams::exp(-1.0 * (age - a50_m) / slope_m));
     }
     
 };
 
-/**
- *Double logistic selectivity implementation. Inherits from selectivity_base.
- */
-template <class T>//T can be any type, double float, variable, etc.
+template <class T>
 class doublelogistic:public selectivity_base<T>{
-    
+
 public:
-    //member fields
     T alpha_asc_m;
     T beta_asc_m;
     T alpha_desc_m;
@@ -98,32 +57,21 @@ public:
     doublelogistic(){       // default constructor
         
     }
-    /*
-     *Constructor that takes parameters.
-     */
-    doublelogistic(T alpha_asc, T beta_asc,T alpha_desc,T beta_desc){
-        this->alpha_asc_m=alpha_asc;
-        this->beta_asc_m=beta_asc;
-        this->alpha_desc_m=alpha_desc;
-        this->beta_desc_m=beta_desc;
-    }
-    /*
-     * destructor. used to release any memory
-     * this class puts on the heap.
-     */
+    
+        doublelogistic(T alpha_asc, T beta_asc,T alpha_desc,T beta_desc){
+            this->alpha_asc_m=alpha_asc;
+            this->beta_asc_m=beta_asc;
+            this->alpha_desc_m=alpha_desc;
+            this->beta_desc_m=beta_desc;
+        }
+    
     ~doublelogistic(){
         std::cout <<"I just deleted"<< std::endl;
     }
-    
-    /**
-     *Logistic mplementation of the virtual evaluate function. Required to be overloaded.
-     *Same look as selectivity_base, different behavior....polymorphism.
-     */
-    virtual T evaluate(const T& age){
-        return (1.0/ (1.0+caa::exp(-beta_asc_m * (age - alpha_asc_m)))) * (1.0- (1.0/ (1.0+caa::exp(-beta_desc_m * (age - alpha_desc_m)))));
-    }
+        virtual T evaluate(const T& age){
+            return (1.0/ (1.0+asams::exp(-beta_asc_m * (age - alpha_asc_m)))) * (1.0- (1.0/ (1.0+asams::exp(-beta_desc_m * (age - alpha_desc_m)))));
+        }
 };
-
-}//end selectivity namespace
+}
 
 #endif /* Selectivity_h */
