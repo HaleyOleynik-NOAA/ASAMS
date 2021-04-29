@@ -13,14 +13,14 @@
 /*
  * growth namespace
  */
-namespace growth{
+namespace asams{
 
 /**
  * Growth base class. Inherits from modelbase.
  */
 template <class T>
 
-class growth_base:public modelbase<T>{
+class growth_base:public model_base<T>{
 protected:
 
 public:
@@ -41,7 +41,7 @@ public:
   enum GROWTH_TYPE{
     SURVEY=0,
     CATCH
-    }
+  };
     
   
   empirical_growth(){
@@ -92,7 +92,7 @@ public:
    *von Bertalanffy implementation of the virtual evaluate function. Required to be overloaded.
    */
   virtual T evaluate(const T& age) {
-    return m_Linf * (1 - caa::exp(-m_K * (age - m_t0)));
+    return m_Linf * (1 - asams::exp(-m_K * (age - m_t0)));
   }
 
 };
