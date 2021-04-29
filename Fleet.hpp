@@ -12,8 +12,9 @@
 #include "Selectivity.hpp"
 #include "Data.hpp"
 #include "Mortality.hpp"
+#include "Population.hpp"
 
-namespace fleet{
+namespace asams{
 
 template<class T>
  class fleet: public model_base<T>{
@@ -30,14 +31,14 @@ template<class T>
     std::vector<T> derived_agecomp_data;
     
     //operators
-    selectivity_base* selectivity_model;
+    selectivity_base<T>* selectivity_model;
     std::vector<T> fishing_mortality;
      
      T likelihood(){
          
      }
     
-}
+ };
 
 }
 
