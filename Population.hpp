@@ -11,14 +11,14 @@
 #include "Growth.hpp"
 #include "Recruitment.hpp"
 #include "Mortality.hpp"
-#include "Survey.hpp"
-#include "Fleet.hpp"
+//#include "Survey.hpp"
+//#include "Fleet.hpp"
 
 
-namespace population{
+namespace asams{
   
  template <class T>
-  class population:public modelbase<T>{
+  class population:public model_base<T>{
     public:
     
     //derived quantities
@@ -34,9 +34,9 @@ namespace population{
     int nyears;
     int nages;
     std::vector<T> ages;
-    growth_base* growth_model;
-    recruitment_base* recruitment_model;
-    mortality_base* mortality_model;
+    growth_base<T>* growth_model;
+    recruitment_base<T>* recruitment_model;
+    mortality_base<T>* mortality_model;
     
     population(){
       
@@ -49,8 +49,8 @@ namespace population{
     void prepare(){                                 // reset all values in containers
     }
     
-    void calculate_mortality(int year, std::vector<fleet*>& fleets){
-    }
+    //void calculate_mortality(int year, std::vector<fleet<T>*>& fleets){
+    //}
     
     void calculate_maturity(int year){
     }
@@ -70,14 +70,13 @@ namespace population{
     void calculate_recruitment(int year){
     }
     
-    void calculate_catch_at_age(int year, std::vector<fleet*>& fleets){
-    }
+    //void calculate_catch_at_age(int year, std::vector<fleet<T>*>& fleets){
+    //}
     
-    void calculate_survey_numbers_at_age(int year, std::vector<survey*>& surveys){
-    }
+    //void calculate_catch_at_age(int year, std::vector<survey<T>*>& surveys){
+    //}
     
-  }
+  };
 }
 
 #endif /* Population_h */
-
