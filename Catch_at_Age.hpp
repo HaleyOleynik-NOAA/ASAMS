@@ -15,16 +15,16 @@
 #include <set>
 
 
-namespace caa{
+namespace asams{
 template <class T>
-class catch_at_age:public modelbase<T>{
+class catch_at_age:public model_base<T>{
 public:
     // vectors
-    std::set<fleet*> fleet_master;
-    std::set<survey*> survey_master;
-    std::map<int, std::vector<fleet*>> fleets_m;
-    std::map<int, std::vector<survey*>> surveys_m;
-    population* population_m;
+    std::set<fleet<T>*> fleet_master;
+    std::set<survey<T>*> survey_master;
+    std::map<int, std::vector<fleet<T>*> > fleets_m;
+    std::map<int, std::vector<survey<T>*> > surveys_m;
+    population<T>* population_m;
     int nyears;
     
     void compute_derived_quantities() {
@@ -43,10 +43,11 @@ public:
         }
     }
     T likelihood(){                // objective function
-    T total_likelihood()
+        T total_likelihood;
     }
 };
 }
 
 
 #endif /* Catch_at_Age_h */
+
