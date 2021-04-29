@@ -13,10 +13,10 @@
 #include <vector>
 #include <map>
 
-namespace mortality{
+namespace asams{
   
 template <class T>
-class mortality:public modelbase<T>{
+class mortality_base:public model_base<T>{
 protected:
   typedef typename std::vector<std::vector<T> > matrix;
   typedef typename std::vector<T> vector;
@@ -24,7 +24,7 @@ protected:
     
 public:
   
-    mortality(int rows = 0, int cols= 0){
+    mortality_base(int rows = 0, int cols= 0){
         this->mortality_m = matrix(rows, vector(cols));
       }
      
@@ -34,24 +34,8 @@ public:
 
 };
   
-  void test_mortality(){
-    mortality<double> natural_mortality(10, 10);
-    
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            natural_mortality(i, j) = i*j;
-        }
-    }
-
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            std::cout << natural_mortality(i, j) << "\t";
-        }
-        std::cout<<"\n";
-    }
-
-}
 }
 
 
 #endif /* Mortality_h */
+
