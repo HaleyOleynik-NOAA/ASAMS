@@ -2,6 +2,8 @@
 //  Survey.hpp
 //  Catch_at_Age
 //
+//  Created by Haley  Oleynik  on 3/16/21.
+//
 
 #ifndef Survey_h
 #define Survey_h
@@ -9,8 +11,10 @@
 #include "Common.hpp"
 #include "Data.hpp"
 #include "Selectivity.hpp"
+#include "Population.hpp"
+#include "Data.hpp"
 
-namespace survey{
+namespace asams{
 
 template<class T>
  class survey: public model_base<T>{
@@ -25,14 +29,14 @@ template<class T>
     std::vector<T> derived_agecomp_data;
     
     //operators
-    selectivity_base* selectivity_model;
-    T q
+    selectivity_base<T>* selectivity_model;
+     T q;
      
      T likelihood(){
          
      }
     
-}
+ };
 
 }
 
