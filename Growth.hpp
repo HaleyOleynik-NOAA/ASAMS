@@ -1,8 +1,5 @@
-//
 //  Growth.hpp
-//  Catch_at_Age
-//
-
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef growth_h
 #define growth_h
