@@ -1,8 +1,5 @@
-//
 //  Common.hpp
-//  Catch_at_Age
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Common_h
 #define Common_h
@@ -27,4 +24,3 @@ const T exp(const T& x){return std::exp(x);}
 
 
 #endif /* Common_h */
-
