@@ -1,8 +1,5 @@
-//
 //  Recruitment.hpp
-//  Catch_at_Age
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Recruitment_h
 #define Recruitment_h
