@@ -1,7 +1,5 @@
 //  main.cpp
-//  Catch_at_Age
-//
-/
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #include <iostream>
 #include "Catch_at_Age.hpp"
