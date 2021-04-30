@@ -1,8 +1,5 @@
-//
 //  Data.hpp
-//
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Data_h
 #define Data_h
@@ -53,4 +50,3 @@ namespace asams{
 }
 
 #endif /* Data_h */
-
