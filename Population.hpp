@@ -1,8 +1,5 @@
-//
 //  Population.hpp
-//  Catch_at_Age
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Population_h
 #define Population_h
@@ -29,6 +26,7 @@ namespace asams{
     std::vector<T> ssb;
     std::vector<T> abundance;
     std::vector<T> biomass;
+    std::vector<T> mortality;
     
     //life history submodels
     int nyears;
@@ -42,15 +40,41 @@ namespace asams{
       
     }
     
-    void initialize(int nyears, int nages){          // initialize function
-      
-    }
+      population(int nyears, int nages ){  // constructor
+          this-> nyears = nyears;
+          this-> nages = nages;
+          initial_numbers_at_age.resize(nages);
+          recruitment.resize(nyears);
+          numbers_at_age.resize(nyears*nages);
+          weight_at_age.resize(nyears*nages);
+          ssb.resize(nyears);
+          abundance.resize(nyears);
+          biomass.resize(nyears);
+          mortality.resize(nyears*nages);
+      }
     
     void prepare(){                                 // reset all values in containers
+        std::fill(initial_numbers_at_age.begin(), initial_numbers_at_age.end(),0);
+        
+        for(int i = 0; i < nyears; i++){
+            recruitment[i]=0;
+            ssb[i]=0;
+            abundance[i]=0;
+            biomass[i]=0;
+            
+            for(int j = 0; j < nages; j++){
+                int index = i*nages+j;
+                numbers_at_age[index]=0;
+                weight_at_age[index]=0;
+                mortality[index]=0;
+            }
+            
+        }
     }
     
-    //void calculate_mortality(int year, std::vector<fleet<T>*>& fleets){
-    //}
+    void calculate_mortality(int year, std::vector<fleet<T>*>& fleets){
+        
+    }
     
     void calculate_maturity(int year){
     }
@@ -70,11 +94,11 @@ namespace asams{
     void calculate_recruitment(int year){
     }
     
-    //void calculate_catch_at_age(int year, std::vector<fleet<T>*>& fleets){
-    //}
+    void calculate_catch_at_age(int year, std::vector<fleet<T>*>& fleets){
+    }
     
-    //void calculate_catch_at_age(int year, std::vector<survey<T>*>& surveys){
-    //}
+    void calculate_survey_numbers_at_age(int year, std::vector<survey<T>*>& surveys){
+    }
     
   };
 }
