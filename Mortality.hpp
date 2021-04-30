@@ -1,8 +1,5 @@
-//
 //  Mortality.hpp
-//  Catch_at_Age
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Mortality_h
 #define Mortality_h
@@ -38,4 +35,3 @@ public:
 
 
 #endif /* Mortality_h */
-
