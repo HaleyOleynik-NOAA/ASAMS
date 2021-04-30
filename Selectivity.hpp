@@ -1,8 +1,5 @@
-//
 //  Selectivity.hpp
-//  Catch_at_Age
-//
-//
+//  Age Structured Assessment Modeling System (ASAMS)
 
 #ifndef Selectivity_h
 #define Selectivity_h
