@@ -23,6 +23,7 @@ public:
     std::map<int, std::vector<survey<T>*> > surveys_m;
     population<T>* population_m;
     int nyears;
+    int nages;
     
     void compute_derived_quantities() {
         population_m->prepare();
@@ -51,6 +52,21 @@ public:
             population_m->calculate_survey_numbers_at_age(y,surveys_m[y]);
 
         }
+    }
+    
+    void calculate_catch_at_age(int year){
+        std::vector<fleet<T>*>& fleets = this->fleets_m[year];
+        for(int i = 0; i < fleets.size(); i++){
+            fleet<T> * F = fleets[i];
+            
+            for(int j = 0; j < nages; j++){
+                
+                
+            }
+        }
+    }
+    
+    void calculate_survey_numbers_at_age(int year, std::vector<survey<T>*>& surveys){
     }
     
     T likelihood(){                // objective function
