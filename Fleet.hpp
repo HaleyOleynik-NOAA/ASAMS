@@ -24,6 +24,7 @@ template<class T>
     std::vector<T> z_at_age;
     std::vector<T> derived_index_data;
     std::vector<T> derived_agecomp_data;
+    std::vector<T> f_at_age;
      int nyears;
      int nages;
      
@@ -69,3 +70,4 @@ template<class T>
 }
 
 #endif /* Fleet_h */
+
