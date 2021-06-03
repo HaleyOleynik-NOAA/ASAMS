@@ -55,6 +55,9 @@ public:
  */
 template <class T>
 
+/// A class describing a von Bertalanffy growth function.
+///
+/// Creates a growth curve
 class vonBertalanffy: public growth_base<T>{
 
 public:
@@ -70,7 +73,10 @@ public:
   }
 
   /**
-   *Constructor that takes arguments
+   *Three parameter VBGF
+   *@param Linf the asymptotic maximum length
+   *@param K the instantaneous growth rate
+   *@param t0 a stupid parameter with no biological meaning
    */
   vonBertalanffy(T Linf, T K, T t0){
     this->m_Linf = Linf;
@@ -87,6 +93,9 @@ public:
 
   /**
    *von Bertalanffy implementation of the virtual evaluate function. Required to be overloaded.
+   *@param age an age to evaluate length at
+   *@return length at age age
+   *
    */
   virtual T evaluate(const T& age) {
     return m_Linf * (1 - asams::exp(-m_K * (age - m_t0)));

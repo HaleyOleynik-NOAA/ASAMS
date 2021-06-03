@@ -1,6 +1,7 @@
 //  Common.hpp
 //  Age Structured Assessment Modeling System (ASAMS)
-
+// 
+//
 #ifndef Common_h
 #define Common_h
 
@@ -10,6 +11,9 @@
 #define variable double
 
 template <class T>
+/// A class for a general model framework.
+///
+/// Provides a framework for a model.
 class model_base{
 protected:
     std::vector<T*> estimable_parameters;
@@ -32,6 +36,10 @@ public:
         
     }
     
+    /// Creates an logistic curve with  \f$ Y = \frac{1.0}{1.0+\mathrm{exp}(-1(age-a_{50})/slope)}\f$.
+    ///
+    /// @param[in] a50 The inflection age of the logistic curve.
+    /// @param[in] slope The logistic curve slope.
     logistic(T a50, T slope){  // constructor
         this->a50_m=a50;
         this->slope_m=slope;
