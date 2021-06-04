@@ -21,10 +21,20 @@ protected:
     
 public:
   
+    /*
+    * Mortality base class
+    * @param rows the number of rows (years) in the mortality matrix 
+    * @param cols the number of columns (ages) in the mortality matrix
+    */
     mortality_base(int rows = 0, int cols= 0){
         this->mortality_m = matrix(rows, vector(cols));
       }
      
+    /*
+    * Operator to extract a single mortality value from the mortality matrix.
+    *@param i the row index (year index) of the mortality value to extract
+    *@param j the column index (age index) of the mortality value to extract
+    */
     inline T& operator()(size_t i, size_t j) {    //overloaded operator
       return this->mortality_m[i][j];
     }

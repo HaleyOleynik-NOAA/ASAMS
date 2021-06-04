@@ -27,7 +27,11 @@ public:
   
   
   template <class T>
-
+/* Empirical growth class implemnents growth_base
+ * 
+ * This function can be used when there is no provided growth curve but catch and survey empirical weight at age is used.
+ * 
+ */
 class empirical_growth: public growth_base<T>{
 
   std::vector<std::map<T, T> > growth;
@@ -73,10 +77,10 @@ public:
   }
 
   /**
-   *Three parameter VBGF
-   *@param Linf the asymptotic maximum length
-   *@param K the instantaneous growth rate
-   *@param t0 a stupid parameter with no biological meaning
+   *Three parameter von Bertalanffy growth function used to calculate length-at-age.
+   *@param Linf the asymptotic maximum length (cm); this is defined as the mean length at maximum age.
+   *@param K the instantaneous growth rate; usually bounded between 0 and 1
+   *@param t0 the time (years) when the fish is at size 0; this can be negative
    */
   vonBertalanffy(T Linf, T K, T t0){
     this->m_Linf = Linf;
@@ -85,7 +89,7 @@ public:
   }
 
   /**
-   * Destructor
+   * Destructor; this method deleted the von Bertalanffy growth object.
    */
   ~ vonBertalanffy(){
     std::cout <<"I just deleted vonBertalanffy object" << std::endl;
