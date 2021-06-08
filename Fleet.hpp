@@ -10,33 +10,51 @@
 #include "Data.hpp"
 #include "Mortality.hpp"
 
+/**
+ * Age Structured Assessment Modeling System (asams) namespace
+ */
 namespace asams{
 
+
+/**
+ * fleet class. Inherits from model_base.
+ */
 template<class T>
  class fleet: public model_base<T>{
   public:
     index_data<T>* observed_index_data;
     agecomp_data<T>* observed_agecomp_data;
     
-    //derived quantities
-    std::vector<T> landings;
-    std::vector<T> catch_at_age;
-    std::vector<T> z_at_age;
-    std::vector<T> derived_index_data;
-    std::vector<T> derived_agecomp_data;
-    std::vector<T> f_at_age;
-     int nyears;
-     int nages;
-     
-    
-    //operators
-    selectivity_base<T>* selectivity_model;
+    /// Derived quantity: landings over years
+    std::vector<T> landings; 
+    /// Derived quantity: catch at age over years
+    std::vector<T> catch_at_age; 
+    /// Derived quantity: total mortality at age over years
+    std::vector<T> z_at_age; 
+    /// Derived quantity: fleet index over years 
+    std::vector<T> derived_index_data; 
+    /// Derived quantity: fleet age composition over years
+    std::vector<T> derived_agecomp_data; 
+    std::vector<T> f_at_age; 
+    /// Derived quantity: fishing mortality over years
     std::vector<T> fishing_mortality;
+    
+    /// Operator
+    selectivity_base<T>* selectivity_model; 
+    
+    int nyears;
+    int nages;
      
-     fleet(int nyears, int nages ){  // constructor
+     /**
+      * Constructor 
+      * @param nyears the number of years 
+      * @param nages the number of ages 
+      */
+     fleet(int nyears, int nages ){  
          this-> nyears = nyears;
          this-> nages = nages;
          
+         // Resize containers
          landings.resize(nyears);
          catch_at_age.resize(nyears*nages);
          z_at_age.resize(nyears*nages);
@@ -45,7 +63,8 @@ template<class T>
          fishing_mortality.resize(nyears);
      }
      
-     void prepare(){                                 // reset all values in containers
+     /// Reset all values in containers
+     void prepare(){                                 
          for(int i = 0; i < nyears; i++){
              landings[i]=0;
              fishing_mortality[i]=0;
