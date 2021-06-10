@@ -1,5 +1,5 @@
 #include "Common.hpp"
-#include "catch_amalgamated.hpp""
+#include "catch_amalgamated.hpp"
 using namespace asams;
 
 TEST_CASE( "Logistic of 100 is 1 (fail)", "[single-file]" ) {
