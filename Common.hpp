@@ -36,7 +36,7 @@ public:
         
     }
     
-    /// Creates an logistic curve with  \f$ Y = \frac{1.0}{1.0+\mathrm{exp}(-1(age-a_{50})/slope)}\f$.
+    /// Sets the logistic parameters.
     ///
     /// @param[in] a50 The inflection age of the logistic curve.
     /// @param[in] slope The logistic curve slope.
@@ -49,6 +49,10 @@ public:
         std::cout <<"I just deleted"<<std::endl;
     }
     
+    ///Creates an logistic curve with  \f$ Y = \frac{1.0}{1.0+\mathrm{exp}(-1(age-a_{50})/slope)}\f$
+    //
+    //@param[in] age the age at which to get the logistic curve output
+    //@return the value (between 0 and 1) of the curve at age \code{age}
     virtual T evaluate(const T& age){
         return (1.0) / (1.0 + asams::exp(-1.0 * (age - a50_m) / slope_m));
     }
