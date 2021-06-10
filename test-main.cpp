@@ -1,9 +1,10 @@
-#include "Common.hpp"
-#include "catch_amalgamated.hpp"
-using namespace asams;
+//  main.cpp
+//  Age Structured Assessment Modeling System (ASAMS)
 
-TEST_CASE( "Logistic of 100 is 1 (fail)", "[single-file]" ) {
-  logistic(5,2) logisticCurve;
-  
-  REQUIRE( logisticCurve(100) == 1 );
+#include <iostream>
+#include "Catch_at_Age.hpp"
+
+int main(int argc, const char * argv[]) {
+    
+    return 0;
 }
