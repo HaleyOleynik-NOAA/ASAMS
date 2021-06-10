@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <cmath>
+#include "catch_amalgamated.hpp"
 
 #define variable double
 
