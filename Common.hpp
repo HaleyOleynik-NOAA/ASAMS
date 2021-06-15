@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <cmath>
-#include "catch_amalgamated.hpp"
+
 
 #define variable double
 
@@ -47,7 +47,6 @@ public:
     }
     
     ~ logistic(){    //destructor
-        std::cout <<"I just deleted"<<std::endl;
     }
     
     ///Creates an logistic curve with  \f$ Y = \frac{1.0}{1.0+\mathrm{exp}(-1(age-a_{50})/slope)}\f$
