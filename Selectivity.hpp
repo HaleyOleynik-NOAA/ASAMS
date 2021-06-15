@@ -37,8 +37,8 @@ public:
     
     /**
      *Constructor that takes arguments
-     *
-     *@copydoc logistic::logistic(T a50, T slope)
+     *@param a50 Age at which selectivity = 50%
+     *@param slope Slope
      */
     
     logistic_selectivity(T a50, T slope){  // constructor
@@ -57,11 +57,12 @@ public:
     /**
      *@brief Logistic selectivity implementation of the virtual evaluate function. Required to be overloaded.
      *
-     *@copydoc logistic::evaluate(const T& age)
+     *Logistic selectivity implementation \f$ \frac{1.0}{1.0+exp(-1.0*\frac{age-a50}{slope}}\f$
+     *@param age Age
      */
     
     virtual T evaluate(const T& age){
-        return (1.0) / (1.0 + asams::exp(-1.0 * (age - a50_m) / slope_m));
+        return asams::logistic(a50_m, slope_m, age);
     }
     
 };
@@ -120,3 +121,4 @@ public:
 }
 
 #endif /* Selectivity_h */
+
