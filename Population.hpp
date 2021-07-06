@@ -8,7 +8,7 @@
 #include "Growth.hpp"
 #include "Recruitment.hpp"
 #include "Mortality.hpp"
-#include "Maturity.hpp"
+//#include "Maturity.hpp"
 #include "Survey.hpp"
 #include "Fleet.hpp"
 
@@ -43,7 +43,7 @@ namespace asams{
     growth_base<T>* growth_model;
     recruitment_base<T>* recruitment_model;
     mortality_base<T>* natural_mortality_model;
-    maturity_base<T>* maturity_model;
+    //maturity_base<T>* maturity_model;
     
     population(){
       
@@ -217,5 +217,6 @@ namespace asams{
     
   };
 }
+
 
 #endif /* Population_h */

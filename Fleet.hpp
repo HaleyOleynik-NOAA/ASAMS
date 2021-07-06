@@ -9,6 +9,7 @@
 #include "Selectivity.hpp"
 #include "Data.hpp"
 #include "Mortality.hpp"
+#include "likelihood.hpp"
 
 /**
  * Age Structured Assessment Modeling System (asams) namespace
@@ -24,6 +25,9 @@ template<class T>
   public:
     index_data<T>* observed_index_data;
     agecomp_data<T>* observed_agecomp_data;
+     
+     likelihood_base<T>* index_likelihood;
+     likelihood_base<T>* agecomp_likelihood;
     
     /// Derived quantity: landings over years
     std::vector<T> landings; 
@@ -81,7 +85,9 @@ template<class T>
      }
      
      T likelihood(){
-         
+         return this->index_likelihood->evaluate(observed_index_data->data_m, this->derived_index_data)
+         + this->agecomp_likelihood->evaluate(observed_agecomp_data->data_m,this->derived_agecomp_data, observed_agecomp_data->sample_size_m, nyears, nages);
+         // plan to revisit this -- 'observed'
      }
     
  };

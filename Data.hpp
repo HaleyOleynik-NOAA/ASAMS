@@ -12,12 +12,16 @@ namespace asams{
    class data_base{
      public:
      std::vector<T> data_m;
+     std::vector<int> sample_size_m;
+     std::vector<T> cv_m;
      int imax_m;
      int jmax_m;
      
      data_base(int imax, int jmax = 1)
        :imax_m(imax), jmax_m(jmax){
        data_m.resize(imax * jmax+1);
+       sample_size_m.resize(imax);
+       cv_m.resize(imax);
        std::fill(this->data_m.begin(), this->data_m.end(), T());
      }
      

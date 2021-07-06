@@ -68,7 +68,9 @@ template<class T>
      }
      
      T likelihood(){
-         
+         return this->index_likelihood->evaluate(observed_index_data->data_m, this->derived_index_data)
+         + this->agecomp_likelihood->evaluate(observed_agecomp_data->data_m,this->derived_agecomp_data, observed_agecomp_data->sample_size_m, nyears, nages);
+         // plan to revisit this -- 'observed'
      }
     
  };
