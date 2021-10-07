@@ -3,8 +3,10 @@
 
 #ifndef Data_h
 #define Data_h
+#include "Distributions.hpp"
 
 #include <vector>
+
 
 namespace asams{
 
@@ -16,6 +18,7 @@ namespace asams{
      std::vector<T> cv_m;
      int imax_m;
      int jmax_m;
+       asams::DistributionBase <T> * prior_distribution;
      
      data_base(int imax, int jmax = 1)
        :imax_m(imax), jmax_m(jmax){

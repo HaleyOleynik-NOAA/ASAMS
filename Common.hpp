@@ -18,7 +18,15 @@ template <class T>
 class model_base{
 protected:
     std::vector<T*> estimable_parameters;
+    std::vector<DistributionBase<T>*> parameter_priors;
     std::vector<int> phase;
+    
+public:
+    void register_parameter(T& par, int phase = 1, DistributionBase<T>* prior = new asams::NormalDistribution()){
+        estimable_parameters.pushback(&par);
+        phase.pushback(phase);
+        parameter_priors.pushback(prior);
+    }
 };
 
 namespace asams {
